@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/create-city">Create new City</a>
+<h1>City</h1>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Tên Thành Phố</th>
+        <th>Quốc gia</th>
+        <th>Diện tích</th>
+        <th>Dân số</th>
+        <th>GDP</th>
+        <th>Chi tiết</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    <th:block th:each="city : ${cities}">
+        <tr>
+            <td th:text="${city.id}"></td>
+            <td th:text="${city.nameCity}"></td>
+            <td th:text="${city.country}"></td>
+            <td th:text="${city.area}"></td>
+            <td th:text="${city.population}"></td>
+            <td th:text="${city.gdp}"></td>
+            <td th:text="${city.detail}"></td>
+            <td><a th:href="@{/edit-city/__${city.id}__ }">Edit</a></td>
+            <td><a th:href="@{/delete-city/__${city.id}__ }">Delete</a></td>
+        </tr>
+    </th:block>
+</table>
+</body>
+</html>
